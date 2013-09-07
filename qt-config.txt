@@ -1,0 +1,1 @@
+./configure -embedded arm -xplatform qws/linux-arm-gnueabihf-g++ -prefix /usr/local/qt -little-endian -qt-gfx-transformed -qt-kbd-linuxinput -no-pch -no-largefile -no-accessibility -no-qt3support -no-audio-backend -no-phonon -no-webkit -no-nis -no-cups -nomake demos -nomake examples
