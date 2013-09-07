@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Start user application...
+#
+
+case "$1" in
+  start)
+ 	echo "Mount /, /media fs..."
+	mount -n -t ext3 -o remount,defaults,ro /dev/mmcblk0p2 /
+	mount -t vfat -o sync,noatime,nodiratime /dev/mmcblk0p1 /media
+	;;
+  stop)
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+mount -t tmpfs -o size=30M tmpfs /tmp/
+# Временно
+mount -n -t ext3 -o remount,defaults,ro /dev/mmcblk0p2 /
+
+cd /start
+
+./can
+
+./monitor-start &
+sleep 10
+./map-start &
+
+exit 0
+
