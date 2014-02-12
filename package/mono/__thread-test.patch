@@ -1,0 +1,56 @@
+--- mono-3.2.5.orig/configure.in	2014-01-29 12:04:25.130855636 +0000
++++ mono-3.2.5/configure.in	2014-01-29 12:04:53.750857940 +0000
+@@ -1572,53 +1572,6 @@
+ 	AC_CHECK_HEADERS(signal.h)
+ 	AC_CHECK_FUNCS(sigaction)
+ 
+-	dnl ***********************************
+-	dnl *** Checks for working __thread ***
+-	dnl ***********************************
+-	AC_MSG_CHECKING(for working __thread)
+-	if test "x$with_tls" != "x__thread"; then
+-		AC_MSG_RESULT(disabled)
+-	else
+-		AC_TRY_RUN([
+-			#if defined(__APPLE__) && defined(__clang__)
+-			#error "__thread does not currently work with clang on Mac OS X"
+-			#endif
+-			
+-			#include <pthread.h>
+-			__thread int i;
+-			static int res1, res2;
+-
+-			void thread_main (void *arg)
+-			{
+-				i = arg;
+-				sleep (1);
+-				if (arg == 1)
+-					res1 = (i == arg);
+-				else
+-					res2 = (i == arg);
+-			}
+-
+-			int main () {
+-				pthread_t t1, t2;
+-
+-				i = 5;
+-
+-				pthread_create (&t1, NULL, thread_main, 1);
+-				pthread_create (&t2, NULL, thread_main, 2);
+-
+-				pthread_join (t1, NULL);
+-				pthread_join (t2, NULL);
+-
+-				return !(res1 + res2 == 2);
+-			}
+-		], [
+-				AC_MSG_RESULT(yes)
+-		], [
+-				AC_MSG_RESULT(no)
+-				with_tls=pthread
+-		])
+-	fi
+-
+ 	dnl **************************************
+ 	dnl *** Checks for working sigaltstack ***
+ 	dnl **************************************
