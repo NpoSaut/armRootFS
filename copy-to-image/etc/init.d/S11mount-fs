@@ -7,7 +7,7 @@ case "$1" in
   start)
  	echo "Mount /, /media fs..."
 	mount -n -t ext3 -o remount,defaults,ro /dev/mmcblk0p2 /
-	mount -t vfat -o sync,noatime,nodiratime /dev/mmcblk0p1 /media
+	#mount -t vfat -o sync,noatime,nodiratime /dev/mmcblk0p1 /media
 	;;
   stop)
 	;;

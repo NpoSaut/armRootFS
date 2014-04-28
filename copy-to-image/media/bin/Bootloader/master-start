@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# --- Получаем список файлов ---
+EXTENSION=mod
+for filename in *.$EXTENSION
+do
+  name=${filename%.$EXTENSION}
+  
+  mkdir $BIN_DIR/$name
+  mkdir $DAT_DIR/$name
+  $BIN_DIR/Bootloader/start-module.sh $BIN_DIR/Bootloader/Bootloader $BIN_DIR/$name $BIN_DIR/$name $DAT_DIR/Bootloader/hard-prop.txt $DAT_DIR/Bootloader/$name.$EXTENSION &
+done
+
+exit 0
