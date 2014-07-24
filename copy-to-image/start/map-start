@@ -1,0 +1,11 @@
+#!/bin/sh
+
+stty -F /dev/ttySAC1 115200
+
+cd /media
+
+while :
+do
+	./QtMap &> /dev/null
+done
+

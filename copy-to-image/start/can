@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ip link set dev can0 type can bitrate 100000 restart-ms 500
+ip link set can0 up
+
+ip link add vcan0 type vcan
+ip link set vcan0 up	
+

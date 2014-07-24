@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export QWS_DISPLAY="Transformed:Rot180"
+
+cd /media
+
+while :
+do
+	/media/QtMon -qws -nomouse &> /dev/null
+done
+
+exit 0
