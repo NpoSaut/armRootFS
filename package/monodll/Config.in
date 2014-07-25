@@ -1,10 +1,10 @@
-config BR2_PACKAGE_MONO
-	bool "mono"
+config BR2_PACKAGE_MONODLL
+	bool "monodll"
 	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
-	depends on BR2_PACKAGE_MONODLL
 	help
 	  Mono is a free and open source project to create an Ecma 
           standard-compliant, .NET Framework-compatible set of tools 
           including, among others, a C# compiler and a Common Language 
           Runtime.
+          This package contains cross-platform DLLs.
 
