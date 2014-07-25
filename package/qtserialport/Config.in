@@ -1,0 +1,8 @@
+config BR2_PACKAGE_QTSERIALPORT
+	bool "QtSerialPort"
+	depends on BR2_PACKAGE_QT
+	help
+	  QtSerialPort module is an add-on for the Qt library, providing
+	  a single interface for both hardware and virtual serial ports.
+
+	  http://qt-project.org/wiki/QtSerialPort
