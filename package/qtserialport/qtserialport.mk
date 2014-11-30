@@ -4,9 +4,10 @@
 #
 #############################################################
 
-QTSERIALPORT_VERSION = 5.3
+QTSERIALPORT_VERSION = stable
 QTSERIALPORT_SOURCE  = $(QTSERIALPORT_VERSION).tar.gz
-QTSERIALPORT_SITE = https://qt.gitorious.org/qt/qtserialport/archive/
+QTSERIALPORT_SITE = https://gitorious.org/qt/qtserialport.git
+QTSERIALPORT_SITE_METHOD = git
 QTSERIALPORT_LICENSE = LGPLv2
 QTSERIALPORT_LICENSE_FILES = LICENSE.LGPL
 QTSERIALPORT_INSTALL_STAGING = YES
