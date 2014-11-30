@@ -624,6 +624,8 @@ target-post-image: $(TARGETS_ROOTFS) target-finalize
 	@$(foreach s, $(call qstrip,$(BR2_ROOTFS_POST_IMAGE_SCRIPT)), \
 		$(call MESSAGE,"Executing post-image script $(s)"); \
 		$(EXTRA_ENV) $(s) $(BINARIES_DIR) $(call qstrip,$(BR2_ROOTFS_POST_SCRIPT_ARGS))$(sep))
+	@$(call MESSAGE,"Executing SD-Image build script")
+	@./afterbuild/make-sd-image.sh "./output/images/$(BR2_SDIMAGE_FILENAME)" $(BR2_SDIMAGE_PROGRAM_SIZE_MB)
 
 toolchain-eclipse-register: toolchain
 	./support/scripts/eclipse-register-toolchain `readlink -f $(O)` $(notdir $(TARGET_CROSS)) $(BR2_ARCH)

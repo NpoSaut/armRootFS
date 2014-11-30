@@ -1,0 +1,20 @@
+menu "SD-Card Image Options"
+
+config BR2_SDIMAGE_BUILD
+	bool "Build an Image of SD-Card, wich contains FAT partition and RootFS partition"
+	default n
+
+
+config BR2_SDIMAGE_FILENAME
+	depends on BR2_SDIMAGE_BUILD
+	string "SD-Image file name"
+	default "sd.img"
+	help
+	  File will be at ./output/images/_name_
+
+config BR2_SDIMAGE_PROGRAM_SIZE_MB
+	depends on BR2_SDIMAGE_BUILD
+	string "Size in MB of FAT partition"
+	default 64
+
+endmenu

@@ -532,6 +532,8 @@ source "package/Config.in.host"
 
 source "Config.in.legacy"
 
+source "afterbuild/Config.in"
+
 menu "User-provided options"
 	depends on BR2_EXTERNAL != "support/dummy-external"
 
