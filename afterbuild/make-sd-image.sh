@@ -18,7 +18,7 @@ SD_SIZE="$((512 * 63 + $PROGRAM_ROUND_SIZE + $ROOTFS_ROUND_SIZE))"
 dd if=/dev/zero of=$SD_IMG bs=512 count="$(($SD_SIZE / 512))"
 
 # PARTITIONING AND FATING
-MTOOLSRC="./mtools.conf"
+export MTOOLSRC="./mtools.conf"
 echo "drive a: file=\"$SD_IMG\" mformat_only partition=1 heads=255 sectors=63 cylinders=$PROGRAM_CYLINDERS" > $MTOOLSRC
 echo "drive b: file=\"$SD_IMG\" mformat_only partition=2 heads=255 sectors=63 cylinders=$ROOTFS_CYLINDERS" >> $MTOOLSRC
 mpartition -I a:
