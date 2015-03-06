@@ -5,9 +5,14 @@
 
 case "$1" in
   start)
- 	echo "Mount /, /media fs..."
+ 	echo "Mount /, /media, /tmp fs..."
 #	mount -n -t ext3 -o remount,defaults,ro /dev/mmcblk0p2 /
-	mount -t vfat -o sync,noatime,nodiratime /dev/mmcblk0p1 /media
+	if [ -e /dev/mmcblk0p1 ]; then
+		mount -t vfat -o sync,noatime,nodiratime /dev/mmcblk0p1 /media
+	else
+		mount -t yaffs /dev/mtdblock4 /media
+	fi
+	mount -t tmpfs -o size=30M tmpfs /tmp/
 	;;
   stop)
 	;;
