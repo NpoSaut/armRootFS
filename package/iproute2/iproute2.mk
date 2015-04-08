@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-IPROUTE2_VERSION = 3.14.0
-IPROUTE2_SOURCE = iproute2-$(IPROUTE2_VERSION).tar.xz
-IPROUTE2_SITE = $(BR2_KERNEL_MIRROR)/linux/utils/net/iproute2
+IPROUTE2_VERSION = master
+IPROUTE2_SITE = https://git.nposaut.ru/iprout2.git
+IPROUTE2_SITE_METHOD = git
 IPROUTE2_DEPENDENCIES = host-bison host-flex
 IPROUTE2_LICENSE = GPLv2
 IPROUTE2_LICENSE_FILES = COPYING
